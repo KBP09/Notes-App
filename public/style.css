@@ -1,5 +1,226 @@
-*{
+* {
     margin: 0;
     padding: 0;
 }
-  
+
+body {
+    background-color: gray;
+}
+
+.nav-bar {
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background-color: black;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 100%;
+}
+
+.userName {
+    display: flex;
+    align-items: center;
+    font-size: 25px;
+}
+
+.userName i {
+    margin-right: 10px;
+    font-size: 30px;
+}
+
+.total-notes {
+    flex-grow: 1;
+    font-size: 25px;
+    text-align: center;
+}
+
+#add-note {
+    font-size: 15px;
+    font-weight: 600;
+    text-transform: capitalize;
+    color: #fff;
+    background-color: #FF3D00;
+    border-radius: 0 0 0 0;
+    border-style: none;
+    padding: 15px 45px;
+    margin-right: 30px;
+}
+
+#add-note:hover {
+    transform: scale(1.1);
+    transition-property: transform;
+    transition-duration: .3s;
+    background: white;
+    color: #000;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+/* card */
+.notes {
+    height: 130px;
+    margin: 20px 40px;
+    padding: 10px 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 0px #656667;
+    display: flex;
+    align-items: center;
+    color: black;
+    font-size: 30px;
+}
+
+/* notes */
+.hidden {
+    display: none;
+}
+
+.notes {
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin: 10px;
+    cursor: pointer;
+    box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.1);
+}
+
+.notes:hover {
+    background-color: #f0eded;
+}
+
+#notes-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+}
+
+textarea {
+    width: 90%;
+    padding: 10px;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.popup {
+    display: none;
+    position: absolute;
+    top: 70px;
+    left: 90%;
+    transform: translateX(-50%);
+    width: 300px;
+    padding: 20px;
+    background-color: rgb(33 37 41);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    z-index: 1000;
+}
+
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
+
+#task-desc {
+    max-height: 100px;
+    min-height: 50px;
+    padding: 4px;
+}
+
+#task-name {
+    padding: 4px;
+}
+
+#task-date {
+    padding: 4px;
+}
+
+.task-submit {
+    position: relative;
+    margin-top: 10px;
+    padding: 10px 20px;
+    border-radius: 7px;
+    border: 1px solid rgb(61, 106, 255);
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 2px;
+    background: transparent;
+    color: #fff;
+    overflow: hidden;
+    box-shadow: 0 0 0 0 transparent;
+    -webkit-transition: all 0.2s ease-in;
+    -moz-transition: all 0.2s ease-in;
+    transition: all 0.2s ease-in;
+}
+
+.task-submit:hover {
+    background: rgb(61, 106, 255);
+    box-shadow: 0 0 30px 5px rgba(0, 142, 236, 0.815);
+    -webkit-transition: all 0.2s ease-out;
+    -moz-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out;
+}
+
+.task-submit:hover::before {
+    -webkit-animation: sh02 0.5s 0s linear;
+    -moz-animation: sh02 0.5s 0s linear;
+    animation: sh02 0.5s 0s linear;
+}
+
+.task-submit::before {
+    content: '';
+    display: block;
+    width: 0px;
+    height: 86%;
+    position: absolute;
+    top: 7%;
+    left: 0%;
+    opacity: 0;
+    background: #fff;
+    box-shadow: 0 0 50px 30px #fff;
+    -webkit-transform: skewX(-20deg);
+    -moz-transform: skewX(-20deg);
+    -ms-transform: skewX(-20deg);
+    -o-transform: skewX(-20deg);
+    transform: skewX(-20deg);
+}
+
+@keyframes sh02 {
+    from {
+        opacity: 0;
+        left: 0%;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+        left: 100%;
+    }
+}
+
+.task-submit:active {
+    box-shadow: 0 0 0 0 transparent;
+    -webkit-transition: box-shadow 0.2s ease-in;
+    -moz-transition: box-shadow 0.2s ease-in;
+    transition: box-shadow 0.2s ease-in;
+}
+
+#task-in-head {
+    color: white;
+}

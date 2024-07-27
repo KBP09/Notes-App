@@ -1,21 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Notes App</title>
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <div class="nav-bar">
         <div class="userName">
             <i class="fa-regular fa-circle-user"></i>
-            <h2 id="name">UserName</h2>
+            <h2 id="name">Kanak</h2>
         </div>
         <div class="total-notes">
             <p>Total Notes : 0</p>
         </div>
-        
+        <button id="add-note"><i class="fa-solid fa-pencil"></i> Add Note</button>
     </div>
+    <main>
+        <div class="notes">
+            <div class="info" id="note-card">
+                <h3>Note-Name</h3>
+                <p><i class="fa-regular fa-calendar-check"></i> 2024-07-10</p>
+                <p id="description">Lorem ipsum dolor sit amet</p>
+            </div>
+        </div>
+        <div id="notes-page" class="hidden">
+            <h1>Write your notes here</h1>
+            <textarea id="notes" rows="20" cols="100"></textarea>
+            <button id="back-button">Back</button>
+        </div>
+        <div id="overlay" class="overlay"></div>
+        <div id="task-input" class="popup">
+            <h2 id="task-in-head">Enter Note Details</h2>
+            <form id="task-form">
+                <input type="text" id="task-name" placeholder="Enter Note Title" required="">
+                <input type="date" id="task-date" placeholder="Enter Note Date" required="">
+                <textarea name="description" id="task-desc" placeholder="Enter Note Description"></textarea>
+
+                <button class="task-submit" id="Add"> Add Note
+                </button>
+                <button class="task-submit" id="Cancel">Cancel</button>
+            </form>
+        </div>
+    </main>
+    <script src="script.js"></script>
     <script src="https://kit.fontawesome.com/125c64195a.js" crossorigin="anonymous"></script>
 </body>
+
 </html>
