@@ -6,16 +6,6 @@ const noteSec = document.querySelector(".notes");
 const noteCard = document.getElementById("note-card"); 
 
 
-const notesadd = () => {
-    popup.style.display = 'block';
-    overlay.style.display = 'block';
-};
-
-addnote.addEventListener('click', (evt) => {
-    evt.preventDefault();
-    notesadd();
-});
-
 const notes = () => {
     popup.style.display = 'none';
     overlay.style.display = 'none';
@@ -37,3 +27,19 @@ addbtn.addEventListener('click',(evt)=>{
     evt.preventDefault();
     notes();
 });
+
+cancelbtn.addEventListener('click',(evt)=>{
+    evt.preventDefault();
+    popup.style.display = 'none';
+    overlay.style.display = 'none';
+});
+
+const notesadd = () => {
+    popup.style.display = 'block';
+    overlay.style.display = 'block';
+};
+
+addnote.addEventListener('click', (evt) => {
+    evt.preventDefault();
+    notesadd();
+})
