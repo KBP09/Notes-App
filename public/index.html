@@ -26,19 +26,21 @@
                 <p><i class="fa-regular fa-calendar-check"></i> 2024-07-10</p>
                 <p id="description">Lorem ipsum dolor sit amet</p>
             </div>
+            <button class="button-29" role="button" id="edit"><i class="fa-solid fa-pencil"></i></button>
+            <button class="button-s" role="button" id="save"><i class="fa-solid fa-floppy-disk"></i></button>
+            <button class="button-t" role="button" id="trash"><i class="fa-solid fa-trash-can"></i></button>
         </div>
-        <div id="notes-page" class="hidden">
+        <div id="notes-page" class="note">
             <h1>Write your notes here</h1>
             <textarea id="notes" rows="20" cols="100"></textarea>
-            <button id="back-button">Back</button>
         </div>
         <div id="overlay" class="overlay"></div>
         <div id="task-input" class="popup">
             <h2 id="task-in-head">Enter Note Details</h2>
             <form id="task-form">
-                <input type="text" id="task-name" placeholder="Enter Note Title" required="">
-                <input type="date" id="task-date" placeholder="Enter Note Date" required="">
-                <textarea name="description" id="task-desc" placeholder="Enter Note Description"></textarea>
+                <input type="text" id="task-name" placeholder="Enter Note Title" required>
+                <input type="date" id="task-date" placeholder="Enter Note Date" required>
+                <textarea name="description" id="task-desc" placeholder="Enter Note Description" required></textarea>
 
                 <button class="task-submit" id="Add"> Add Note
                 </button>
