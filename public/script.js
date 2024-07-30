@@ -105,4 +105,12 @@ document.addEventListener('DOMContentLoaded', () => {
         const totalNotes = document.querySelectorAll('.notes').length;
         document.querySelector('.total-notes p').innerText = `Total Notes: ${totalNotes}`;
     };
+
+    const userName = () => {
+        const user = prompt("Enter your user-name");
+        if (user) {
+            document.querySelector("#name").innerText=user;
+        }
+    };
+    userName();
 });
