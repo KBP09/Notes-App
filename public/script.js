@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const noteSec = document.querySelector("main");
     const overlay = document.getElementById("overlay");
     const textarea = document.getElementById("notes-page");
-    const save = document.getElementById("save");
+    let notesHidden = false;
 
     // Function to create a new note
     const createNote = (noteTitle, noteDate, noteDesc) => {
@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <p class="description">${noteDesc}</p>
             </div>
             <button class="button-29 edit-btn" role="button"><i class="fa-solid fa-pencil"></i></button>
-            <button class="button-s save-btn" role="button"><i class="fa-solid fa-floppy-disk"></i></button>
+            <button class="button-s save-btn" role="button" id="save"><i class="fa-solid fa-floppy-disk"></i></button>
             <button class="button-t trash-btn" role="button"><i class="fa-solid fa-trash-can"></i></button>
         `;
 
@@ -34,7 +34,6 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById("task-date").value = '';
         document.getElementById("task-desc").value = '';
     };
-
     // Handle adding new notes
     addbtn.addEventListener('click', (evt) => {
         const form = document.getElementById("task-form");
@@ -75,23 +74,29 @@ document.addEventListener('DOMContentLoaded', () => {
             const noteDate = noteCard.querySelector('p i').nextSibling.textContent.trim();
             const noteDesc = noteCard.querySelector('.description').innerText;
 
-            // Hide all note cards
-            document.querySelectorAll('.notes').forEach(card => {
-                card.style.display = 'none';
-            });
-
-            // Show the textarea and populate with selected note's details
-            const firstNoteCard = document.querySelector('.notes');
-            firstNoteCard.style.display = 'flex';
-            firstNoteCard.querySelector('h3').innerText = noteTitle;
-            firstNoteCard.querySelector('p i').nextSibling.textContent = ` ${noteDate}`;
-            firstNoteCard.querySelector('.description').innerText = noteDesc;
-            if(textarea.style.display === 'flex'){
+            // Toggle the visibility of the note cards
+            if (notesHidden) {
+                document.querySelectorAll('.notes').forEach(card => {
+                    card.style.display = 'flex';
+                });
                 textarea.style.display = 'none';
-                save.style.display = 'none';
-            }else{
-            textarea.style.display = 'flex';
-            save.style.display = 'flex';}
+                noteCard.querySelector('.save-btn').style.display = 'none';
+            } else {
+                document.querySelectorAll('.notes').forEach(card => {
+                    card.style.display = 'none';
+                });
+
+                noteCard.style.display = 'flex';
+                noteCard.querySelector('h3').innerText = noteTitle;
+                noteCard.querySelector('p i').nextSibling.textContent = ` ${noteDate}`;
+                noteCard.querySelector('.description').innerText = noteDesc;
+                
+                textarea.style.display = 'flex';
+                noteCard.querySelector('.save-btn').style.display = 'flex';
+            }
+
+            // Toggle the hidden state
+            notesHidden = !notesHidden;
         }
     });
 
